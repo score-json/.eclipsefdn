@@ -828,6 +828,33 @@ orgs.newOrg('automotive.score', 'eclipse-score') {
         allow_merge_commit: true,
         has_discussions: true,
         has_wiki: true,
+        has_issues: true,
+        dependabot_alerts_enabled: true,
+        gh_pages_build_type: "workflow",
+        workflows+: {
+          enabled: true,
+          allowed_actions: "all",
+          default_workflow_permissions: "read",
+          actions_can_approve_pull_request_reviews: false,
+        },
+        rulesets: [
+          orgs.newRepoRuleset('main') {
+            include_refs+: [
+              "refs/heads/main"
+            ],
+            required_pull_request+: {
+              dismisses_stale_reviews: true,
+              required_approving_review_count: 1,
+              requires_code_owner_reviews: true,
+            },
+            required_status_checks+: {
+              strict: true,
+              status_checks+: [],
+            },
+            requires_linear_history: true,
+            allows_force_pushes: false,
+          },
+        ],
     },
 
     newScoreRepo('baselibs_rust', true) {
