@@ -845,11 +845,6 @@ orgs.newOrg('automotive.score', 'eclipse-score') {
             required_pull_request+: {
               dismisses_stale_reviews: true,
               required_approving_review_count: 1,
-              requires_code_owner_reviews: true,
-            },
-            required_status_checks+: {
-              strict: true,
-              status_checks+: [],
             },
             requires_linear_history: true,
             allows_force_pushes: false,
