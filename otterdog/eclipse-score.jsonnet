@@ -823,7 +823,7 @@ orgs.newOrg('automotive.score', 'eclipse-score') {
     newScoreRepo("inc_nlohmann_json", true) {
         description: "Nlohmann JSON Library",
         forked_repository: "nlohmann/json",
-        default_branch: "develop",
+        default_branch: "main",
         allow_rebase_merge: true,
         allow_merge_commit: true,
         has_discussions: true,
